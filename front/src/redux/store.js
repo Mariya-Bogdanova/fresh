@@ -1,19 +1,14 @@
 import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { productsReduser } from './redusers/productsReduser'; //
-
-const preloadedState = window.localStorage.getItem('redux') ?? '{}';
+import { authReduser } from './redusers/authRedusers'; //
 
 const store = createStore(
   combineReducers({
     products: productsReduser,
+    isAuthenticated: authReduser,
   }),
-  JSON.parse(preloadedState),
   composeWithDevTools(),
 );
-
-store.subscribe(() => {
-  window.localStorage.setItem('redux', JSON.stringify(store.getState()));
-});
 
 export default store;

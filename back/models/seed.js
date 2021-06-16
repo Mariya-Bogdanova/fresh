@@ -1,6 +1,9 @@
+/* eslint-disable no-shadow */
 /* eslint-disable import/extensions */
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 import ProductsModel from './products.js';
+import UserModel from './user.js';
 
 mongoose.connect('mongodb://localhost:27017/fresh', { useNewUrlParser: true });
 
@@ -41,5 +44,13 @@ async function createProducts(title, daysOfLife, dateOfManufacture, shelfLife) {
     });
   }
 }
+// createProducts(title, daysOfLife, dateOfManufacture, shelfLife);
 
-createProducts(title, daysOfLife, dateOfManufacture, shelfLife);
+async function createUserNumberOne() {
+  const hashedPassword = await bcrypt.hash('qwerqwer', process.env.SALT_ROUNDS ?? 10);
+  await UserModel.create({
+    userName: 'qwer',
+    userPassword: hashedPassword,
+  });
+}
+// createUserNumberOne();
