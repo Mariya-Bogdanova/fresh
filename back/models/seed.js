@@ -14,8 +14,8 @@ const title = [
   'Борщ',
 ];
 
-// от 15 июня
-const daysOfLife = [
+// от 17 июня
+const expiryDate = [
   1,
   11,
   0,
@@ -28,19 +28,20 @@ const dateOfManufacture = [
   '06.14.2021',
 ];
 const shelfLife = [
-  '06.15.2021',
-  '06.25.2021',
-  '06.14.2021',
+  '06.18.2021',
+  '06.28.2021',
   '06.17.2021',
+  '06.20.2021',
 ];
-async function createProducts(title, daysOfLife, dateOfManufacture, shelfLife) {
+async function createProducts(title, expiryDate, dateOfManufacture, shelfLife) {
   for (let i = 0; i < 4; i++) {
     // eslint-disable-next-line no-await-in-loop
     await ProductsModel.insertMany({
       title: title[i],
-      daysOfLife: daysOfLife[i],
+      expiryDate: expiryDate[i],
       dateOfManufacture: dateOfManufacture[i],
       shelfLife: shelfLife[i],
+      userID: '60c8b70c66b44422be01c6c3',
     });
   }
 }

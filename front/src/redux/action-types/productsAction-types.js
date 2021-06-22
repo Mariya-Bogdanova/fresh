@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const SET_PRODUCTS = 'SET_PRODUCTS';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const ADD_PRODUCT = 'ADD_PRODUCT';

@@ -21,7 +21,7 @@ function Login() {
       const response = await axios.post('/auth/login', { userName, userPassword });
       if (response.status === 200) {
         dispatch(authentication());
-        return history.push('/secret');
+        return history.push('/fresh');
       }
     } catch {
       setError('Повторите вход');

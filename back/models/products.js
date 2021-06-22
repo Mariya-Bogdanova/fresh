@@ -7,12 +7,14 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  daysOfLife: {
-    type: Number,
-    required: true,
-  },
+  expiryDate: Number,
   dateOfManufacture: Date,
   shelfLife: Date,
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
 
 export default mongoose.model('Product', ProductSchema);

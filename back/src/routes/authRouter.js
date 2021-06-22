@@ -34,7 +34,8 @@ router.route('/login')
       const isValidPassword = user && await bcrypt.compare(userPassword, user.userPassword);
       if (isValidPassword) {
         req.session.user = {
-          userName,
+          // eslint-disable-next-line no-underscore-dangle
+          userName, _id: user._id,
         };
         return res.end();
       }
