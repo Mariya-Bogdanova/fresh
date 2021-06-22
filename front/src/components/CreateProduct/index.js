@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { addProduct } from '../../redux/actions/productsAction';
 
 function CreateProduct() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     title: '',
@@ -32,17 +33,17 @@ function CreateProduct() {
     });
   }
   async function submitCreateProduct(event) {
-    // console.log(shelfLife);
     event.preventDefault();
     if (date1 || date2) {
       const response = await axios.post('/api', {
         title, shelfLife, dateOfManufacture, expiryDate,
       });
-      // if (response.status === 200) {
-      //   dispatch(authentication());
-      //   return history.push('/fresh');
-      // }
-    } else { setError('Должна быть заполнена хотя бы одна дата'); }
+      if (response.status === 200) {
+        dispatch((addProduct()));
+        return history.push('/fresh');
+      }
+    }
+    return setError('Должна быть заполнена хотя бы одна дата');
   }
 
   return (

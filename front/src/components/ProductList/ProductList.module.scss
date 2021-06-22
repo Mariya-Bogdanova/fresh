@@ -1,0 +1,17 @@
+.fridge{
+  background: no-repeat center/100% url("./х.jpg");
+  margin: 2% 5%;
+  padding: 3%;
+  border-radius: 20px;
+  min-height: 60vh;
+  // opacity: 0.5;
+}
+
+.fridgeContent{
+  background: rgba(207, 221, 207, 0.3);
+  padding: 1%;
+  height: 60vh;
+  border-radius: 20px;
+display: flex;
+justify-content: space-around;
+}

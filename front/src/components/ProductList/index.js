@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import moment from 'moment';
-import Product from '../Product';
+// import Product from '../Product';
 import { setProducts, deleteProduct } from '../../redux/actions/productsAction';
+// eslint-disable-next-line import/no-unresolved
+import styles from './ProductList.module.scss';
 
 function ProductList() {
   const history = useHistory();
@@ -58,35 +60,50 @@ function ProductList() {
   return (
     <>
       <button type="button" onClick={handlecreate}>Добавить продукт</button>
-      <br />
-      <br />
-      <div>
-        { threeTypesOfDayOfLife['Более одного дня'].map(({ _id, title }) => (
-          <div key={_id}>
-            <Link to="/product">{title}</Link>
-            <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+
+      <div className={styles.fridge}>
+        <div className={styles.fridgeContent}>
+          <div>
+            Более одного дня:
+            <br />
+            {' '}
+            <br />
+            { threeTypesOfDayOfLife['Более одного дня'].map(({ _id, title }) => (
+              <div key={_id}>
+                <Link to="/product">{title}</Link>
+                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
-      <div>
-        { threeTypesOfDayOfLife['Последний день'].map(({ _id, title }) => (
-          <div key={_id}>
-            <Link to="/product">{title}</Link>
-            <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+
+          <div>
+            Последний день:
+            <br />
+            {' '}
+            <br />
+            { threeTypesOfDayOfLife['Последний день'].map(({ _id, title }) => (
+              <div key={_id}>
+                <Link to="/product">{title}</Link>
+                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
-      <div>
-        { threeTypesOfDayOfLife.Просрочено.map(({ _id, title }) => (
-          <div key={_id}>
-            <Link to="/product">{title}</Link>
-            <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+
+          <div>
+            Просрочено:
+            <br />
+            {' '}
+            <br />
+            { threeTypesOfDayOfLife.Просрочено.map(({ _id, title }) => (
+              <div key={_id}>
+                <Link to="/product">{title}</Link>
+                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-      <br />
+
       <Link to="/">HOME</Link>
     </>
   );
