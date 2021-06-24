@@ -10,12 +10,11 @@ export function setProducts(products) {
     },
   };
 }
-export function addProduct(title, id) {
+export function addProduct(newProduct) {
   return {
     type: ADD_PRODUCT,
     payload: {
-      title,
-      id,
+      newProduct,
     },
   };
 }

@@ -11,14 +11,9 @@ export function productsReduser(state = inicialProducts, action) {
     case ADD_PRODUCT:
       return [
         ...state,
-        {
-          title: action.payload.title,
-          status: false,
-          _id: action.payload.id,
-        },
+        action.payload.newProduct,
       ];
     case DELETE_PRODUCT:
-      console.log(state);
       return [
         ...state.filter((product) => product._id !== action.payload.id),
       ];

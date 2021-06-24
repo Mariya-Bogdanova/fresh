@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+/* eslint-disable no-underscore-dangle */
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { addProduct } from '../../redux/actions/productsAction';
+import { useCreateDayOfLife } from '../../hooks/hooks';
 
 function CreateProduct() {
   const history = useHistory();
@@ -18,6 +20,12 @@ function CreateProduct() {
   const {
     title, expiryDate, date1, date2, shelfLife, dateOfManufacture,
   } = inputs;
+  const product = {
+    dateOfManufacture,
+    expiryDate,
+    shelfLife,
+    title,
+  };
   const [error, setError] = useState(false);
   function controlInputs({ target: { name, value } }) {
     setInputs({
@@ -39,7 +47,9 @@ function CreateProduct() {
         title, shelfLife, dateOfManufacture, expiryDate,
       });
       if (response.status === 200) {
-        dispatch((addProduct()));
+        const newProduct = useCreateDayOfLife(product);
+        newProduct._id = response.data;
+        dispatch((addProduct(newProduct)));
         return history.push('/fresh');
       }
     }

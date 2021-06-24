@@ -4,6 +4,8 @@ import { useHistory, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 // eslint-disable-next-line import/named
 import { authentication } from '../../redux/actions/authActions ';
+import { setProducts } from '../../redux/actions/productsAction';
+import { useCreateDayOfLife } from '../../hooks/hooks';
 
 function Login() {
   const dispatch = useDispatch();
@@ -21,6 +23,9 @@ function Login() {
       const response = await axios.post('/auth/login', { userName, userPassword });
       if (response.status === 200) {
         dispatch(authentication());
+        const responseProducts = await axios('/api');
+        const NewProducts = responseProducts.data.map((product) => useCreateDayOfLife(product));
+        dispatch(setProducts(NewProducts));
         return history.push('/fresh');
       }
     } catch {

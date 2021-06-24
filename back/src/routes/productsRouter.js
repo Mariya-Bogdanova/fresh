@@ -18,7 +18,7 @@ router.route('/')
     const newProduct = await new ProductsModel({
       title, shelfLife, dateOfManufacture, expiryDate, userID: req.session.user._id,
     }).save();
-    res.end();
+    res.json(newProduct._id);
   })
   .delete(async (req, res) => {
     await ProductsModel.findByIdAndDelete(req.body.id);
