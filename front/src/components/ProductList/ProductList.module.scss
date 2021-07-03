@@ -1,17 +1,35 @@
+@import '../../globalStyles/global';
+
 .fridge{
-  background: no-repeat center/100% url("./х.jpg");
-  margin: 2% 5%;
-  padding: 3%;
-  border-radius: 20px;
-  min-height: 60vh;
-  // opacity: 0.5;
+ background-color: #0076fd;
+ height: 100vh;
+
+  .shelf{
+    @include textStyle;
+    color: rgb(239,234,233);
+    font-weight: bolder;
+    width: 29%;
+    background: #1a00ff no-repeat  url("./13.png");
+    background-size: 100% 100%;
+    min-height: 90vh;
+    box-shadow: 0 0 30px rgb(239,234,233) ;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .delButton{
+      background: #1a00ff no-repeat  url("./del.png");
+      border: none;
+      width: 15px;
+      height: 15px;
+      background-size: contain;
+      margin-left: 8px;
+    }
+  }
 }
 
-.fridgeContent{
-  background: rgba(207, 221, 207, 0.3);
-  padding: 1%;
-  height: 60vh;
-  border-radius: 20px;
+.fridgeContent{  
 display: flex;
 justify-content: space-around;
 }

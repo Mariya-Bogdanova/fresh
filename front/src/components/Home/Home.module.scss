@@ -1,0 +1,40 @@
+@import '../../globalStyles/global';
+
+.home{
+  background-image: url("./l4.png");
+  background-repeat: no-repeat;
+  background-position: 75%;
+  background-color:$background-color-Global;
+  height: 100vh;
+}
+
+.login{  
+  display: flex;
+  flex-direction: column;
+  padding: 15%;
+  justify-content: flex-start;
+  height: 139px;
+  padding: 118px 42px;
+  width: 250px;
+  & a {
+    margin-bottom: 35px;
+    @include textStyle;
+    color: $colorText;
+    // text-decoration: none;
+    font-size: larger;
+  }
+}
+
+.goBack{
+  position: absolute;
+  top:20px;
+  left: 20px;
+  width: 60px;
+  outline: none;
+  border: 1px $borderColor solid;
+  border-radius: 6px;
+  background-color: $background-color-Global;
+  color: $colorText;
+  @include textStyle;
+  font-size: 16px;
+}

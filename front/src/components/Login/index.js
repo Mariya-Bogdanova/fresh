@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { authentication } from '../../redux/actions/authActions ';
 import { setProducts } from '../../redux/actions/productsAction';
 import { useCreateDayOfLife } from '../../hooks/hooks';
+import styles from './Login.module.scss';
 
 function Login() {
   const dispatch = useDispatch();
@@ -42,18 +43,17 @@ function Login() {
   }
 
   return (
-    <form action="" method="post" onSubmit={submitLogin}>
+    <form className={styles.form} action="" method="post" onSubmit={submitLogin}>
       <label htmlFor="userName">
-        Login:
+        Логин:
         <input id="userName" type="text" name="userName" required value={userName} onChange={controlInputs} />
       </label>
       <label htmlFor="userPassword">
-        Password:
+        Пароль:
         <input id="userPassword" type="password" name="userPassword" required value={userPassword} onChange={controlInputs} />
       </label>
       <button type="submit">Войти</button>
-      <div className="error">{error}</div>
-      <Link to="/">HOME</Link>
+      <div className={styles.error}>{error}</div>
     </form>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -6,6 +7,7 @@ import { deleteProduct } from '../../redux/actions/productsAction';
 import styles from './ProductList.module.scss';
 
 function ProductList() {
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
   const history = useHistory();
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
@@ -36,47 +38,49 @@ function ProductList() {
   }
   return (
     <>
-      <button type="button" onClick={handlecreate}>Добавить продукт</button>
 
       <div className={styles.fridge}>
+        <nav>
+          {isAuthenticated && <Link to="/logout">Выйти</Link>}
+        </nav>
+        <br />
+        <button type="button" onClick={handlecreate}>Добавить продукт</button>
         <div className={styles.fridgeContent}>
-          <div>
-            Более одного дня:
-            <br />
-            {' '}
-            <br />
-            { threeTypesOfDayOfLife['Более одного дня'].map(({ _id, title }) => (
-              <div key={_id}>
-                <Link to="/product">{title}</Link>
-                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
-              </div>
-            ))}
+          <div className={styles.shelf}>
+            <p>Более одного дня:</p>
+            <div>
+              { threeTypesOfDayOfLife['Более одного дня'].map(({ _id, title }) => (
+                <div key={_id}>
+                  <Link to="/product">{title}</Link>
+                  <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+                </div>
+              ))}
+            </div>
+
           </div>
 
-          <div>
-            Последний день:
-            <br />
-            {' '}
-            <br />
-            { threeTypesOfDayOfLife['Последний день'].map(({ _id, title }) => (
-              <div key={_id}>
-                <Link to="/product">{title}</Link>
-                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
-              </div>
-            ))}
+          <div className={styles.shelf}>
+            <p>Последний день:</p>
+            <div>
+              { threeTypesOfDayOfLife['Последний день'].map(({ _id, title }) => (
+                <div key={_id}>
+                  <Link to="/product">{title}</Link>
+                  <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div>
-            Просрочено:
-            <br />
-            {' '}
-            <br />
-            { threeTypesOfDayOfLife.Просрочено.map(({ _id, title }) => (
-              <div key={_id}>
-                <Link to="/product">{title}</Link>
-                <button type="button" onClick={() => handledelete(_id)}>Удалить</button>
-              </div>
-            ))}
+          <div className={styles.shelf}>
+            <p>Просрочено:</p>
+            <div>
+              { threeTypesOfDayOfLife.Просрочено.map(({ _id, title }) => (
+                <div key={_id}>
+                  <Link to="/product">{title}</Link>
+                  <button className={styles.delButton} type="button" onClick={() => handledelete(_id)} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
