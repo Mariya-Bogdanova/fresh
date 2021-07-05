@@ -2,10 +2,41 @@ $colorText: darkgreen;
 $background-color-Global: #fff38e;
 $borderColor: orange;
 
+@mixin inputAutocomplete{
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      transition: background-color 1000s ease-in-out 0s;
+      -webkit-text-fill-color: $colorText; 
+  }
+}
+
 @mixin textStyle {
   font-family: Comic, 'Comic Sans', 'Bradley Hand', 'Brush Script MT', 'Brush Script Std','Snell Roundhand', 'URW Chancery L', cursive;
   font-style: oblique;
 }
+@mixin inputs{
+  color: $colorText;
+  outline: none;
+  border: none;
+  background-color: rgba($color: #000000, $alpha:0);
+  border-bottom: 1px $borderColor solid;
+  @include textStyle;
+  width: 100%;
+}
+
+@mixin button {
+  width: 60px;
+  outline: none;
+  border: 1px $borderColor solid;
+  border-radius: 6px;
+  background-color: $background-color-Global;
+  color: $colorText;
+  @include textStyle;
+  font-size: 16px;
+}
+
 @mixin LoginSignUp {
   .form{
     display: flex;
@@ -20,21 +51,9 @@ $borderColor: orange;
       justify-content: space-between;
     }
     & input{
-    color: $colorText;
-    outline: none;
-    border: none;
-    background-color: rgba($color: #000000, $alpha:0);
-    border-bottom: 1px $borderColor solid;
-    @include textStyle;
-    width: 100%;
+      @include inputs;
     }
-    & input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        transition: background-color 5000s ease-in-out 0s;
-    }
-    
+
     & button{
     outline: none;
     border: 1px $borderColor solid;

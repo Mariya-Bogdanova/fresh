@@ -1,0 +1,48 @@
+@import '../../globalStyles/global';
+@include inputAutocomplete;
+$textColorCreate: #000d73;
+.create{
+  background-image: url("../App/14.png");
+  background-repeat: no-repeat;
+  background-position: -175%;
+  background-color:#c8cece;
+  height: 100vh;
+}
+
+.formCreate{ 
+  position: absolute;
+  right: 18%; 
+  display: flex;
+  flex-direction: column;
+  padding: 118px 42px;
+  width: 250px;
+  @include textStyle;
+  input{
+    @include inputs;
+    color: $textColorCreate;
+    border-bottom: 1px $textColorCreate solid;
+  }
+  button{
+    @include textStyle;
+    @include button;
+    background-color:rgba($color: #000000, $alpha:0);
+    color: $textColorCreate;
+    border-color: $textColorCreate;
+    width: 100%;
+  }
+  input{
+    color:$textColorCreate;
+     -webkit-text-fill-color: $textColorCreate; 
+     font-size: 15px; 
+  }
+}
+
+.button{
+  @include button;
+  position: absolute;
+  top:20px;
+  left: 20px;
+  background-color: rgba($color: #000000, $alpha:0);
+  border-color: $textColorCreate;
+  color: $textColorCreate;
+}

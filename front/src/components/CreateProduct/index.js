@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { addProduct } from '../../redux/actions/productsAction';
 import { useCreateDayOfLife } from '../../hooks/hooks';
+import styles from './CreateProduct.module.scss';
 
 function CreateProduct() {
   const history = useHistory();
@@ -55,10 +56,12 @@ function CreateProduct() {
     }
     return setError('Должна быть заполнена хотя бы одна дата');
   }
-
+  function goBack() {
+    return history.push('/fresh');
+  }
   return (
-    <>
-      <form action="" method="post" onSubmit={submitCreateProduct}>
+    <div className={styles.create}>
+      <form className={styles.formCreate} action="" method="post" onSubmit={submitCreateProduct}>
         <label htmlFor="title">
           Название:
           <input id="title" type="text" name="title" required value={title} onChange={controlInputs} />
@@ -67,8 +70,8 @@ function CreateProduct() {
         <br />
 
         <label htmlFor="shelfLife">
-          Срок годности:
-          <input value={date1} name="date1" type="checkbox" id="date1" onChange={controlCheckbox} checked={date1} />
+          <span>Срок годности:</span>
+          <input style={{ width: '20px' }} value={date1} name="date1" type="checkbox" id="date1" onChange={controlCheckbox} checked={date1} />
           {date1 && <input type="date" id="shelfLife" name="shelfLife" required value={shelfLife} onChange={controlInputs} />}
         </label>
         <br />
@@ -76,7 +79,7 @@ function CreateProduct() {
 
         <label htmlFor="dateOfManufacture">
           Дата производства:
-          <input value={date2} name="date2" type="checkbox" id="date2" onChange={controlCheckbox} checked={date2} />
+          <input style={{ width: '20px' }} value={date2} name="date2" type="checkbox" id="date2" onChange={controlCheckbox} checked={date2} />
           {date2 && <input type="date" id="dateOfManufacture" name="dateOfManufacture" required value={dateOfManufacture} onChange={controlInputs} />}
         </label>
         <br />
@@ -100,8 +103,8 @@ function CreateProduct() {
         <button type="submit">Добавить продукт</button>
         <div className="error">{error}</div>
       </form>
-      <Link to="/">HOME</Link>
-    </>
+      <button className={styles.button} onClick={goBack} type="button">Назад</button>
+    </div>
   );
 }
 
