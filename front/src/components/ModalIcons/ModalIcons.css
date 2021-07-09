@@ -1,0 +1,7 @@
+.buttons{
+
+  width: 90px;
+  height: 90px; 
+  background: center/60px rgba(166, 255, 93, 0.075) no-repeat ;
+  border: rgba(199, 199, 248, 0.623) 1px solid;
+}

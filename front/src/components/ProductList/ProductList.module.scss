@@ -1,7 +1,7 @@
 @import '../../globalStyles/global';
 
 .fridge{
- background-color: #0076fd;
+ background-color: #fff9c775;
  height: 100vh;
 
   .shelf{
@@ -9,8 +9,9 @@
     color: #fee57a;
     font-weight: bolder;
     width: 29%;
-    background: #1a00ff no-repeat  url("./13.png");
-    background-size: 100% 100%;
+    background: #cdccd7a1 no-repeat  url("./13.png");
+    background-size: 117% 100%;
+    background-position: -46px 0px;
     min-height: 90vh;
     box-shadow: 0 0 30px rgb(239,234,233) ;
     border-radius: 20px;
@@ -19,7 +20,7 @@
     align-items: center;
 
     .delButton{
-      background: #1a00ff no-repeat  url("./del.png");
+      background: #cdccd7 no-repeat  url("./del.png");
       border: none;
       width: 15px;
       height: 15px;
@@ -32,4 +33,13 @@
 .fridgeContent{  
 display: flex;
 justify-content: space-around;
+}
+
+.button{
+  @include button;
+  position: absolute;
+  top:9px;
+  background-color: rgba($color: #000000, $alpha:0);
+  border-color: $borderColor;
+  color:$borderColor;
 }

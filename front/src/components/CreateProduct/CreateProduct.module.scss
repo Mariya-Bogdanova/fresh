@@ -4,9 +4,10 @@ $textColorCreate: #000d73;
 .create{
   background-image: url("../App/14.png");
   background-repeat: no-repeat;
-  background-position: -175%;
-  background-color:#c8cece;
+  background-position: -8px 19px;
+  background-color:#cdccd7a1;
   height: 100vh;
+  background-size: 65%;
 }
 
 .formCreate{ 
@@ -32,8 +33,15 @@ $textColorCreate: #000d73;
   }
   input{
     color:$textColorCreate;
-     -webkit-text-fill-color: $textColorCreate; 
      font-size: 15px; 
+     margin-top: 5px;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active,
+  input:-webkit-autofill:focus {
+      -webkit-text-fill-color: $textColorCreate; 
   }
 }
 

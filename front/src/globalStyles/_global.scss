@@ -1,8 +1,9 @@
 $colorText: darkgreen;
-$background-color-Global: #fff38e;
-$borderColor: orange;
+$background-color-Global: #fff9c775;
+$borderColor:rgb(255, 153, 0) ;
 
 @mixin inputAutocomplete{
+  
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -27,7 +28,7 @@ $borderColor: orange;
 }
 
 @mixin button {
-  width: 60px;
+  min-width: 60px;
   outline: none;
   border: 1px $borderColor solid;
   border-radius: 6px;

@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { addProduct } from '../../redux/actions/productsAction';
 import { useCreateDayOfLife } from '../../hooks/hooks';
 import styles from './CreateProduct.module.scss';
+import ModalIcons from '../ModalIcons';
 
 function CreateProduct() {
   const history = useHistory();
@@ -100,6 +101,7 @@ function CreateProduct() {
       )}
 
         <br />
+        <div><ModalIcons /></div>
         <button type="submit">Добавить продукт</button>
         <div className="error">{error}</div>
       </form>

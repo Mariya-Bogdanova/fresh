@@ -36,15 +36,19 @@ function ProductList() {
   async function handlecreate() {
     return history.push('/newProduct');
   }
+  function goBack() {
+    return history.push('/logout');
+  }
   return (
     <>
 
       <div className={styles.fridge}>
-        <nav>
-          {isAuthenticated && <Link to="/logout">Выйти</Link>}
+        <nav style={{ height: '20px' }}>
+          {isAuthenticated
+          && <button className={styles.button} style={{ left: '13px' }} onClick={goBack} type="button">Выйти</button>}
+          <button type="button" className={styles.button} style={{ right: '13px' }} onClick={handlecreate}>Добавить продукт</button>
         </nav>
         <br />
-        <button type="button" onClick={handlecreate}>Добавить продукт</button>
         <div className={styles.fridgeContent}>
           <div className={styles.shelf}>
             <p>Более одного дня:</p>
