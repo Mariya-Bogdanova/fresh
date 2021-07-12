@@ -10,6 +10,7 @@ const ProductSchema = new mongoose.Schema({
   expiryDate: Number,
   dateOfManufacture: Date,
   shelfLife: Date,
+  icon: String,
   userID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

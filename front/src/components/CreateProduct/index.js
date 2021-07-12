@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { addProduct } from '../../redux/actions/productsAction';
 import { useCreateDayOfLife } from '../../hooks/hooks';
 import styles from './CreateProduct.module.scss';
@@ -19,6 +19,7 @@ function CreateProduct() {
     date2: false,
     dateOfManufacture: '',
   });
+  const [icon, setIcon] = useState('');
   const {
     title, expiryDate, date1, date2, shelfLife, dateOfManufacture,
   } = inputs;
@@ -46,11 +47,12 @@ function CreateProduct() {
     event.preventDefault();
     if (date1 || date2) {
       const response = await axios.post('/api', {
-        title, shelfLife, dateOfManufacture, expiryDate,
+        title, shelfLife, dateOfManufacture, expiryDate, icon,
       });
       if (response.status === 200) {
         const newProduct = useCreateDayOfLife(product);
         newProduct._id = response.data;
+        newProduct.icon = icon;
         dispatch((addProduct(newProduct)));
         return history.push('/fresh');
       }
@@ -96,12 +98,13 @@ function CreateProduct() {
           onChange={controlInputs}
           required
           placeholder="Количество дней"
+          style={{ marginBottom: '20px' }}
         />
       </label>
       )}
 
         <br />
-        <div><ModalIcons /></div>
+        <div><ModalIcons setIcon={setIcon} /></div>
         <button type="submit">Добавить продукт</button>
         <div className="error">{error}</div>
       </form>
