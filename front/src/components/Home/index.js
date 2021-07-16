@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import Login from '../Login';
 import Signup from '../SignUp';
-// import global from '../../globalStyles/global.scss';
 
 function Home() {
   const [inputs, setinputs] = useState({

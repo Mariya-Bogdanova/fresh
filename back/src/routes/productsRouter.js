@@ -11,11 +11,17 @@ router.route('/')
     res.json(products);
   })
   .post(async (req, res) => {
+    let newIcon;
     const {
       title, shelfLife, dateOfManufacture, expiryDate, icon,
     } = req.body;
     const newProduct = await new ProductsModel({
-      title, shelfLife, dateOfManufacture, expiryDate, icon, userID: req.session.user._id,
+      title,
+      shelfLife,
+      dateOfManufacture,
+      expiryDate,
+      icon,
+      userID: req.session.user._id,
     }).save();
     res.json(newProduct._id);
   })

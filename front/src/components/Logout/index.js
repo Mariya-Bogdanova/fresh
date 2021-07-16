@@ -14,8 +14,7 @@ function Logout() {
       history.push('/');
     })();
   });
-
-  return 'Идет логаут...';
+  return '';
 }
 
 export default Logout;

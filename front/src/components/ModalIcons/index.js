@@ -49,7 +49,7 @@ function ModalIcons({ setIcon }) {
   }
   function addIcon(elem) {
     setIconDisplay(images[`${elem}.png`].default);
-    setIcon(`../ModalIcons/icons/${elem}.png`);
+    setIcon(elem);
     closeModal();
   }
   function keyD() {

@@ -19,7 +19,7 @@ function CreateProduct() {
     date2: false,
     dateOfManufacture: '',
   });
-  const [icon, setIcon] = useState('');
+  const [icon, setIcon] = useState('1');
   const {
     title, expiryDate, date1, date2, shelfLife, dateOfManufacture,
   } = inputs;
@@ -67,7 +67,7 @@ function CreateProduct() {
       <form className={styles.formCreate} action="" method="post" onSubmit={submitCreateProduct}>
         <label htmlFor="title">
           Название:
-          <input id="title" type="text" name="title" required value={title} onChange={controlInputs} />
+          <input id="title" maxLength="8" type="text" name="title" required value={title} onChange={controlInputs} />
         </label>
         <br />
         <br />

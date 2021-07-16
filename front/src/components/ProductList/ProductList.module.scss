@@ -6,7 +6,7 @@
 
   .shelf{
     @include textStyle;
-    color: #fee57a;
+    color: #2c2608;
     font-weight: bolder;
     width: 29%;
     background: #cdccd7a1 no-repeat  url("./13.png");
@@ -19,13 +19,54 @@
     flex-direction: column;
     align-items: center;
 
-    .delButton{
-      background: #cdccd7 no-repeat  url("./del.png");
-      border: none;
-      width: 15px;
-      height: 15px;
-      background-size: contain;
-      margin-left: 8px;
+    .boxProduct{
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      justify-content: space-evenly;
+
+      .oneProduct{
+        margin: 5px;
+        position: relative;
+        width: 110px;
+        height: 80px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+      }
+  
+      .delButton{
+        outline: none;
+        position: absolute;
+        right: -9%;
+        top: 4%;
+        background:  no-repeat  ;
+        border: none;
+        width: 67%;
+        height: 23%;
+        background-size: contain;
+        background-position: center;
+
+      }
+      .link{
+        padding-top: 9px;
+        width: 65%;
+        height: 100%;
+        border-radius: 12px;
+        background-color: #5f66b70d;
+
+        img{
+          width: 72%;
+          border-radius: 5px;
+        }
+        p{
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          font-style: normal;
+          margin-top: 3px;
+          font-weight: 500;
+        }
+      }
     }
   }
 }
