@@ -4,7 +4,20 @@
  background-color: #fff9c775;
  height: 100vh;
 
-  .shelf{
+ .button{
+  @include button;
+  position: absolute;
+  top:9px;
+  background-color: rgba($color: #000000, $alpha:0);
+  border-color: $borderColor;
+  color:$borderColor;
+  }
+
+ .fridgeContent{  
+  display: flex;
+  justify-content: space-around;
+
+   .shelf{
     @include textStyle;
     color: #2c2608;
     font-weight: bolder;
@@ -19,68 +32,16 @@
     flex-direction: column;
     align-items: center;
 
-    .boxProduct{
+     .boxProduct{
       padding: 10px;
       display: flex;
       flex-wrap: wrap;
       height: 100%;
       justify-content: space-evenly;
-
-      .oneProduct{
-        margin: 5px;
-        position: relative;
-        width: 110px;
-        height: 80px;
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
-      }
-  
-      .delButton{
-        outline: none;
-        position: absolute;
-        right: -9%;
-        top: 4%;
-        background:  no-repeat  ;
-        border: none;
-        width: 67%;
-        height: 23%;
-        background-size: contain;
-        background-position: center;
-
-      }
-      .link{
-        padding-top: 9px;
-        width: 65%;
-        height: 100%;
-        border-radius: 12px;
-        background-color: #5f66b70d;
-
-        img{
-          width: 72%;
-          border-radius: 5px;
-        }
-        p{
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-          font-style: normal;
-          margin-top: 3px;
-          font-weight: 500;
-        }
+      align-content: flex-start;
       }
     }
   }
 }
 
-.fridgeContent{  
-display: flex;
-justify-content: space-around;
-}
 
-.button{
-  @include button;
-  position: absolute;
-  top:9px;
-  background-color: rgba($color: #000000, $alpha:0);
-  border-color: $borderColor;
-  color:$borderColor;
-}

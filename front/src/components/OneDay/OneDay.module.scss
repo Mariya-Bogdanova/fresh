@@ -1,0 +1,44 @@
+// @import '../../globalStyles/global';
+
+      .oneProduct{
+        margin: 18px 5px;
+        position: relative;
+        width: 110px;
+        height: 80px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+      }
+  
+      .delButton{
+        outline: none;
+        position: absolute;
+        right: -9%;
+        top: 4%;
+        background:  no-repeat  ;
+        border: none;
+        width: 67%;
+        height: 23%;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+      }
+
+      .link{
+        padding-top: 9px;
+        width: 65%;
+        height: 100%;
+        border-radius: 12px;
+        background-color: #5f66b70d;
+
+        img{
+          width: 72%;
+          border-radius: 5px;
+        }
+        p{
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          font-style: normal;
+          margin-top: 3px;
+          font-weight: 500;
+        }
+      }

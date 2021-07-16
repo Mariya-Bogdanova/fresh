@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router, Route, Switch, Link,
 } from 'react-router-dom';
 import ProductList from '../ProductList';
-import Product from '../Product';
 import Logout from '../Logout';
 import PrivateRoute from '../PrivateRoute';
 import CreateProduct from '../CreateProduct';
@@ -22,9 +21,6 @@ function App() {
           </Route>
           <PrivateRoute path="/fresh">
             <ProductList />
-          </PrivateRoute>
-          <PrivateRoute path="/product">
-            <Product />
           </PrivateRoute>
           <PrivateRoute path="/newProduct">
             <CreateProduct />
