@@ -26,7 +26,7 @@ router.route('/')
     res.json(newProduct._id);
   })
   .delete(async (req, res) => {
-    await ProductsModel.findByIdAndDelete(req.body.id);
+    await ProductsModel.findByIdAndDelete(req.body.idForDelete);
     res.end();
   });
 export default router;

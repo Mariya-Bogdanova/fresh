@@ -36,7 +36,13 @@ function Home() {
   return (
     <>
       <div className={styles.home}>
-        <img src={fresh} alt="" style={{ width: '200px', position: 'absolute', left: '50%' }} />
+        <img
+          src={fresh}
+          alt=""
+          style={{
+            width: '200px', position: 'absolute', left: '26%', top: '48%',
+          }}
+        />
         <div className={styles.login}>
           {inputs.login && <Link to="/login" name="loginInput" onClick={beginToLogin}>ВОЙТИ</Link>}
           {inputs.loginInput && (
