@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 import Login from '../Login';
 import Signup from '../SignUp';
+import fresh from './fresh.png';
 
 function Home() {
   const [inputs, setinputs] = useState({
@@ -35,8 +36,8 @@ function Home() {
   return (
     <>
       <div className={styles.home}>
+        <img src={fresh} alt="" style={{ width: '200px', position: 'absolute', left: '50%' }} />
         <div className={styles.login}>
-
           {inputs.login && <Link to="/login" name="loginInput" onClick={beginToLogin}>ВОЙТИ</Link>}
           {inputs.loginInput && (
           <>
