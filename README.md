@@ -1,4 +1,4 @@
-![screenshot](readme-assets/FreshLogo.png)
+![screenshot](readme-assets/logo.png)
 
 
 Приложение для контроля срока годности продуктов у вас дома. <br/>
