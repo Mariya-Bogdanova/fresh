@@ -39,6 +39,6 @@ Express <br/>
 MongoDB <br/>
 Mongoose <br/>
 
-### Над приложением работали:
+### Над приложением работала:
 
 * [Мария Богданова](https://github.com/Mariya-Bogdanova);
